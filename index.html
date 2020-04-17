@@ -3,8 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>ReactJS</title>
+
+    <style>
+        .red{
+            background-color: red;
+            color: white;
+            padding: 10px;        
+        }
+
+        .green{
+            background-color: green;
+            color: white;
+            padding: 10px;        
+        }
+    </style>
 </head>
 <body>
+
+    <div class="red">
+        <p>Texto do div</p>
+    </div>
+    <div class="green">
+        <p>Texto do div</p>
+    </div>
 
     <div id="root"></div>
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
@@ -13,40 +34,40 @@
 
     <script type="text/babel">
 
-        /*function CompA(props){
-            return(
-                <div>
-                    <h3>Nome: {props.nome}</h3>
-                </div>
-            )
-        }
-
-        function App(){
-            return(
-                <div>
-                    <CompA nome="Ana" />
-                    <CompA nome="João"/>
-                    <CompA nome="Carla"/>
-                    <CompA nome="Paula"/>
-                </div>
-            )
-        }*/
-
-        class Adicao extends React.Component{
+        class CompA extends React.Component{
             render(){
                 return(
-                    <div>
-                        <p>O resultado de {this.props.a} + {this.props.b} = {this.props.a + this.props.b}</p>
-                        <p>O nome é {this.props.nome}</p>
+                    <div className="red">
+                        <p>Texto do CompA</p>
                     </div>
                 )
             }
         }
         
+        class CompB extends React.Component{
+            render(){
+                return(
+                    <div className="green">
+                        <p>Texto do CompB</p>
+                    </div>
+                )
+            }
+        }
+        
+        class App extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <CompA />
+                        <CompB />
+                    </div>
+                )
+            }
+        }
 
         const root = document.getElementById('root');
-        //ReactDOM.render(<App />, root);
-        ReactDOM.render(<Adicao a={10} b={20} nome="João" />, root);
+        //ReactDOM.render(<CompA />, root);
+        ReactDOM.render(<App />, root);
     </script>
 </body>
     
