@@ -23,26 +23,29 @@
 
        class App extends React.Component{
 
-           render(){
-                const estilo = {
-                    color: "red",
-                    backgroundColor: "yellow",
-                    padding: "20px"
-                };
-                
-                return(
-                   <div>
-                        <p className="cor-texto">Texto</p>
-                        <p style={estilo}>Texto2</p>
-                   </div>
-               )
-           }
-       }
+            constructor(){
+                super()
 
-       ReactDOM.render(
-           <App />,
+                this.state = {
+                    nome: "João",
+                    idade: 45
+                }
+            }
+
+            render(){
+                return(
+                    <div>
+                        <p>Nome: {this.state.nome} {this.props.Apelido}</p>
+                        <p>Idade: {this.state.idade}</p>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <App Apelido="Ribeiro"/>,
             document.getElementById('root')
-       );
+        );
         
     </script>
 </body>
