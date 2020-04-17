@@ -21,47 +21,39 @@
 
     <script type="text/babel">
 
-        //Identificação
-        class Identificacao extends React.Component{
-
+        class App extends React.Component{
+            
             constructor(){
                 super();
+
                 this.state = {
-                    nome: "João Ribeiro",
-                    idade: 46
+                    nome: "João"
                 }
+
+                this.cmd_click = this.cmd_click.bind(this);
+
+            }
+            
+            //evento click
+            cmd_click(){
+                // Erro this.state.nome = "Joaquim";
+                this.setState({nome: "Joaquim"});
             }
 
             render(){
-
-                this.state.nome="Joaquim"
                 return(
                     <div>
-                        <Nome nome={this.state.nome} />
-                        <Idade idade={this.state.idade}/>
+                        <p>Nome: {this.state.nome}</p>
+                        <button onClick={this.cmd_click}>Clique</button>
                     </div>
                 );
             }
         }
-
-        class Nome extends React.Component{
-            render(){
-                return(
-                    <p>Nome: {this.props.nome}</p>
-                )
-            }
-        }
-
-        class Idade extends React.Component{
-            render(){
-                return(
-                    <p>Idade: {this.props.idade}</p>
-                )
-            }
-        }
+      
+       
 
         ReactDOM.render(
-            <Identificacao /> ,
+            <App /> ,
             document.getElementById('root')
         );
         
