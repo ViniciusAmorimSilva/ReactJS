@@ -5,7 +5,6 @@
     <title>ReactJS</title>
 </head>
 <body>
-    <h1>ReactJS</h1>
 
     <div id="root"></div>
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
@@ -13,10 +12,48 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <script type="text/babel">
-        const root = document.getElementById('root');
 
-        let nome = "Vinicius"
-        ReactDOM.render(<h3>O meu nome é {nome}</h3>, root);
+        class CompA extends React.Component{
+            render(){
+                return(
+                    <h3>CompA</h3>
+                )
+            }
+        }
+
+        class CompB extends React.Component{
+            render(){
+                return(
+                    <h3>CompB</h3>
+                )
+            }
+        }
+
+        class MeuComponente extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <CompA />
+                        <hr />
+                        <CompB />
+                    </div>
+                )
+            }
+        }
+        
+        /*class MeuComponente extends React.Component{
+            render(){
+                return( 
+                    <div>
+                        <h3>Titulo</h3>
+                        <p>Teste</p>
+                    </div>
+                )
+            }
+        }*/
+
+        const root = document.getElementById('root');
+        ReactDOM.render(<MeuComponente />, root);
     </script>
 </body>
     
