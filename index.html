@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReactJS</title>
+</head>
+<body>
+    <h1>ReactJS</h1>
+
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+        const root = document.getElementById('root');
+
+        let nome = "Vinicius"
+        ReactDOM.render(<h3>O meu nome é {nome}</h3>, root);
+    </script>
+</body>
+    
+</html>
