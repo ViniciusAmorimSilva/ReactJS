@@ -22,28 +22,30 @@
     <script type="text/babel">
 
        class App extends React.Component{
-
+            //Propriedades são de valores fixos
             constructor(){
-                super()
+                super();
 
                 this.state = {
-                    nome: "João",
-                    idade: 45
+                    nome: "João"
                 }
             }
-
             render(){
+
+                //Erro -> this.props.idade = "50";
+                this.state.nome = "Joaquim";
+                
                 return(
                     <div>
-                        <p>Nome: {this.state.nome} {this.props.Apelido}</p>
-                        <p>Idade: {this.state.idade}</p>
+                        <p>Nome: {this.state.nome}</p>
+                        <p>Idade: {this.props.idade}</p>
                     </div>
                 )
             }
         }
 
         ReactDOM.render(
-            <App Apelido="Ribeiro"/>,
+            <App idade="45"/> ,
             document.getElementById('root')
         );
         
