@@ -5,17 +5,11 @@
     <title>ReactJS</title>
 
     <style>
-        .red{
-            background-color: red;
-            color: white;
+        .cor-texto{
+            color: red;
             padding: 10px;        
         }
 
-        .green{
-            background-color: green;
-            color: white;
-            padding: 10px;        
-        }
     </style>
 </head>
 <body>
@@ -27,21 +21,28 @@
 
     <script type="text/babel">
 
-        function Tempo(){
-            // jsx a apresentar
-            const conteudo = (
-                <div>
-                    <h3>Tempo Atual</h3>
-                    <p>Estamos na seguinte hora: {new Date().toLocaleTimeString()}</p>
-                </div>
-            )
-            ReactDOM.render(
-                conteudo,
-                document.getElementById('root')
-            )
-        }
+       class App extends React.Component{
 
-        setInterval(Tempo, 1000);
+           render(){
+                const estilo = {
+                    color: "red",
+                    backgroundColor: "yellow",
+                    padding: "20px"
+                };
+                
+                return(
+                   <div>
+                        <p className="cor-texto">Texto</p>
+                        <p style={estilo}>Texto2</p>
+                   </div>
+               )
+           }
+       }
+
+       ReactDOM.render(
+           <App />,
+            document.getElementById('root')
+       );
         
     </script>
 </body>
