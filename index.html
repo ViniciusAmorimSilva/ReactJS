@@ -13,19 +13,31 @@
 
     <script type="text/babel">
 
-        function CompA(props){
+        /*function CompA(props){
             return(
                 <div>
-                    <h3>Olá, {props.nome} {props.apelido}. </h3>
+                    <h3>Nome: {props.nome}</h3>
                 </div>
             )
         }
 
-        class CompB extends React.Component{
+        function App(){
+            return(
+                <div>
+                    <CompA nome="Ana" />
+                    <CompA nome="João"/>
+                    <CompA nome="Carla"/>
+                    <CompA nome="Paula"/>
+                </div>
+            )
+        }*/
+
+        class Adicao extends React.Component{
             render(){
                 return(
                     <div>
-                        <p>Olá novamente, {this.props.nome} {this.props.apelido}. </p>
+                        <p>O resultado de {this.props.a} + {this.props.b} = {this.props.a + this.props.b}</p>
+                        <p>O nome é {this.props.nome}</p>
                     </div>
                 )
             }
@@ -33,8 +45,8 @@
         
 
         const root = document.getElementById('root');
-        //ReactDOM.render(<CompA nome="Joao" apelido="Ribeiro" />, root);
-        ReactDOM.render(<CompB nome="Joao" apelido="Ribeiro" />, root);
+        //ReactDOM.render(<App />, root);
+        ReactDOM.render(<Adicao a={10} b={20} nome="João" />, root);
     </script>
 </body>
     
