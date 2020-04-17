@@ -5,6 +5,7 @@
     <title>ReactJS</title>
 </head>
 <body>
+    <h1>ReactJS</h1>
 
     <div id="root"></div>
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
@@ -12,21 +13,10 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <script type="text/babel">
+        const root = document.getElementById('root');
 
-        function MeuComponente(){
-
-            var nome = "João";
-            var apelido = "Ribeiro";
-
-            return(
-                <div>
-                    <h1>Olá React!</h1>
-                    <p>O meu nome é {nome} {apelido}</p>
-                </div>
-            )
-        }
-        
-        ReactDOM.render(<MeuComponente />, root);
+        let nome = "Vinicius"
+        ReactDOM.render(<h3>O meu nome é {nome}</h3>, root);
     </script>
 </body>
     
