@@ -13,47 +13,28 @@
 
     <script type="text/babel">
 
-        class CompA extends React.Component{
-            render(){
-                return(
-                    <h3>CompA</h3>
-                )
-            }
+        function CompA(props){
+            return(
+                <div>
+                    <h3>Olá, {props.nome} {props.apelido}. </h3>
+                </div>
+            )
         }
 
         class CompB extends React.Component{
             render(){
                 return(
-                    <h3>CompB</h3>
-                )
-            }
-        }
-
-        class MeuComponente extends React.Component{
-            render(){
-                return(
                     <div>
-                        <CompA />
-                        <hr />
-                        <CompB />
+                        <p>Olá novamente, {this.props.nome} {this.props.apelido}. </p>
                     </div>
                 )
             }
         }
         
-        /*class MeuComponente extends React.Component{
-            render(){
-                return( 
-                    <div>
-                        <h3>Titulo</h3>
-                        <p>Teste</p>
-                    </div>
-                )
-            }
-        }*/
 
         const root = document.getElementById('root');
-        ReactDOM.render(<MeuComponente />, root);
+        //ReactDOM.render(<CompA nome="Joao" apelido="Ribeiro" />, root);
+        ReactDOM.render(<CompB nome="Joao" apelido="Ribeiro" />, root);
     </script>
 </body>
     
