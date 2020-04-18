@@ -15,46 +15,33 @@
 
         class App extends React.Component{
 
-            render(){
-                return(
-
-                    <div>
-                        <h3>Exercicio</h3>
-                        <hr />
-                        <CompNome nome_inicial="João" nome_final="Ribeiro"/>
-                        <CompNome nome_inicial="Ana" nome_final="Joaquina"/>
-                        <CompNome nome_inicial="Sarah" nome_final="Bolota"/>
-                    </div>
-
-                )
-            }
-        }
-
-        class CompNome extends React.Component{
-
-            constructor(props){
-                super(props);
+            constructor(){
+                super()
 
                 this.state = {
-                    nome : this.props.nome_inicial
-                };
-
-                //binding
-                this.cmd_click = this.cmd_click.bind(this);
-
+                    nome: "João"
+                }
             }
-
-            cmd_click(){
-                this.setState({nome: this.props.nome_final})
+            
+            //Permite que o bind seja implicito(Arrow function)
+            metodo = () => {
+                console.log("teste")
+                this.setState({nome: "Joaquim"})
             }
+            
+            // Dá erro 
+            /*metodo1(){
+                console.log("teste")
+                this.setState({nome: "Joaquim"})
+            }*/
 
             render(){
                 return(
                     <div>
                         <p>Nome: {this.state.nome}</p>
-                        <button onClick={this.cmd_click}>Alterar</button>
+                        <button onClick={this.metodo}>Botão</button>
                     </div>
-                );
+                )
             }
         }
 
