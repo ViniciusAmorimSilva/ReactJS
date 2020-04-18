@@ -3,14 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>ReactJS</title>
-
-    <style>
-        .cor-texto{
-            color: red;
-            padding: 10px;        
-        }
-
-    </style>
 </head>
 <body>
 
@@ -22,41 +14,56 @@
     <script type="text/babel">
 
         class App extends React.Component{
-            
-            constructor(){
-                super();
+
+            render(){
+                return(
+
+                    <div>
+                        <h3>Exercicio</h3>
+                        <hr />
+                        <CompNome nome_inicial="João" nome_final="Ribeiro"/>
+                        <CompNome nome_inicial="Ana" nome_final="Joaquina"/>
+                        <CompNome nome_inicial="Sarah" nome_final="Bolota"/>
+                    </div>
+
+                )
+            }
+        }
+
+        class CompNome extends React.Component{
+
+            constructor(props){
+                super(props);
 
                 this.state = {
-                    nome: "João"
-                }
+                    nome : this.props.nome_inicial
+                };
 
+                //binding
                 this.cmd_click = this.cmd_click.bind(this);
 
             }
-            
-            //evento click
+
             cmd_click(){
-                // Erro this.state.nome = "Joaquim";
-                this.setState({nome: "Joaquim"});
+                this.setState({nome: this.props.nome_final})
             }
 
             render(){
                 return(
                     <div>
                         <p>Nome: {this.state.nome}</p>
-                        <button onClick={this.cmd_click}>Clique</button>
+                        <button onClick={this.cmd_click}>Alterar</button>
                     </div>
                 );
             }
         }
-      
-       
 
         ReactDOM.render(
-            <App /> ,
+            <App />,
             document.getElementById('root')
         );
-        
+    
+
     </script>
 </body>
     
