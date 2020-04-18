@@ -15,31 +15,15 @@
 
         class App extends React.Component{
 
-            constructor(){
-                super()
-
-                this.state = {
-                    nome: "João"
-                }
+            metodo = (texto) => {
+                //console.log("teste");
+                console.log(texto);
             }
-            
-            //Permite que o bind seja implicito(Arrow function)
-            metodo = () => {
-                console.log("teste")
-                this.setState({nome: "Joaquim"})
-            }
-            
-            // Dá erro 
-            /*metodo1(){
-                console.log("teste")
-                this.setState({nome: "Joaquim"})
-            }*/
 
             render(){
                 return(
                     <div>
-                        <p>Nome: {this.state.nome}</p>
-                        <button onClick={this.metodo}>Botão</button>
+                        <button onClick={() => this.metodo("Olá Mundo!")}>Clicar</button>
                     </div>
                 )
             }
