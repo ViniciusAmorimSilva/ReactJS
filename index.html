@@ -16,48 +16,46 @@
         class App extends React.Component{
             render(){
 
-                const noticias = [
-                    {
-                        titulo: "Notícia 1",
-                        texto: "Texto da notícia 1",
-                        autor: "Autor 1"
+                const socios = [
+                    {   
+                        id: 1,
+                        nome: "Joao",
+                        idade: 46
                     },
                     {
-                        titulo: "Notícia 2",
-                        texto: "Texto da notícia 2",
-                        autor: "Autor 2"
-                    },
-                    {
-                        titulo: "Notícia 3",
-                        texto: "Texto da notícia 3",
-                        autor: "Autor 3"
-                    },
+                        id: 2,
+                        nome: "Ana",
+                        idade: 25
+                    }
                 ];
+            
+                const final = socios.map(socio => <MostrarSocio key={socio.id} socio={socio } />)
                 
-                // Preparação do component child notícia
-                const final = noticias.map(noticia => <Noticias noticia={noticia}/>)
+                
+                /*const nomes = ["João", "Ana", "Carlos"];
+                const final = nomes.map(nome => <h3 key={nome}>{nome}</h3>)*/
+
                 return(
                     <div>
-                        <h2>Noticias</h2>
-                        <hr />
                         {final}
                     </div>
-                )
+                );
             }
         }
 
-        class Noticias extends React.Component{
-            
+        class MostrarSocio extends React.Component{
+
             constructor(props){
+                
                 super(props);
 
             }
+
             render(){
                 return(
                     <div>
-                        <h3>{this.props.noticia.titulo}</h3>
-                        <p>{this.props.noticia.texto}</p>
-                        <small><i>{this.props.noticia.autor}</i></small>
+                        <p>Nome: {this.props.socio.nome} </p>
+                        <p>Idade: {this.props.socio.idade} </p>
                     </div>
                 )
             }
