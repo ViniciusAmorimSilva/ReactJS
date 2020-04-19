@@ -30,12 +30,18 @@
             }
             render(){
 
-                let cor = this.props.cor ? 'cor-vermelho' : '';
-                let tamanho = this.props.tamanho ? 'tamanho' : '';
+                let estilo = {
+                    color: "red",
+                    fontSize: "2em"
+                }
+
+                let estilo2 = {
+                    border: '1px solid red'
+                }
 
                 return(
                     <div>
-                        <p className={`${cor} ${tamanho}`}>Texto com estilo!</p>
+                        <p style={estilo2}>Texto com estilo</p>
                     </div>
                 );
             }
