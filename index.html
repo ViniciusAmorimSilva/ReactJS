@@ -16,25 +16,27 @@
         //parent
         class App extends React.Component{
 
-            metodo(){
-                console.log("Olá Pai");
+            metodo(texto){
+                console.log(texto);
             }
 
             render(){
                 return(
                     <div>
                         <p>Texto do componente Pai</p>
-                        <CompA  metodo={this.metodo}/>
+                        <Child evento={this.metodo} />
                     </div>
                 );
             }
         }
 
         //child
-        class CompA extends React.Component{
+        class Child extends React.Component{
             render(){
                 return(
-                    <button onClick={this.props.metodo}>Clicar</button>
+                    <div>
+                        <button onClick={() => this.props.evento("Olá Mundo!")}>Clicar</button>
+                    </div>
                 )
             }
         }
