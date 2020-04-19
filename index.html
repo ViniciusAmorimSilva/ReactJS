@@ -15,44 +15,39 @@
 
         class App extends React.Component{
 
-            constructor(){
-                super()
-
-                this.state = {
-                    tempoBom: true
-                }
-            }
-
             render(){
 
+                const nomes = [
+                    'Joao',
+                    'Ana', 
+                    'Carlos'
+                ];
+
+                const pessoas = [
+                    {
+                        nome: "Joao",
+                        profissao: "Programador"
+                    },
+                    {
+                        nome: "Ana",
+                        profissao: "Professora"
+                    },
+                    {
+                        nome: "Carlos",
+                        profissao: "Carpinteiro"
+                    },
+
+                ];
+
+                //const final = nomes.map(nome => <h3>{nome}</h3>)
+                const final = pessoas.map(pessoa => <h3>{pessoa.nome} exerce a profissao de {pessoa.profissao}</h3>)
+
                 return(
-                    this.state.tempoBom && <p>O tempo está bom</p>
-                )
+                    <div>
+                        {final}
+                    </div>
 
-                // --------------------------------
-                // Condição ternária
-                /*return(
-                    this.state.tempoBom ? <p>O tempo está bom</p> : <p>O tempo está mau</p>
-                )*/
-
-                //---------------------------------
-                // Usando variável
-                /*let texto
-                if(this.state.tempoBom){
-                    texto = <p>O tempo está bom</p>
-                } else{
-                    texto = <p>O tempo está mau</p>
-                }
-
-                return texto*/
-
-                //----------------------------------
-                //if else
-                /*if(this.state.tempoBom){
-                    return <p>O tempo está bom.</p>
-                } else{
-                    return <p>O tempo está mau.</p>
-                }*/
+                )            
             }
         }
         
@@ -60,6 +55,12 @@
             <App />,
             document.getElementById('root')
         )
+
+        //let nomes =['Joao', 'Ana', 'Carlos']
+
+        /*console.log(nomes);
+        let final = nomes.map(n => 'Bom dia, ' + n);
+        console.log(final);*/
 
     </script>
 </body>
