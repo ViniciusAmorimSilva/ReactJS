@@ -14,50 +14,17 @@
     <script type="text/babel">
 
         class App extends React.Component{
+
             render(){
-
-                const socios = [
-                    {   
-                        id: 1,
-                        nome: "Joao",
-                        idade: 46
-                    },
-                    {
-                        id: 2,
-                        nome: "Ana",
-                        idade: 25
-                    }
-                ];
-            
-                const final = socios.map(socio => <MostrarSocio key={socio.id} socio={socio } />)
                 
+                const nomes = ["João", "Ana", "Carlos", "Ana"];
+                const final = nomes.map((nome, index) => <h3 key={index}>{index} - {nome}</h3>);
                 
-                /*const nomes = ["João", "Ana", "Carlos"];
-                const final = nomes.map(nome => <h3 key={nome}>{nome}</h3>)*/
-
                 return(
                     <div>
                         {final}
                     </div>
                 );
-            }
-        }
-
-        class MostrarSocio extends React.Component{
-
-            constructor(props){
-                
-                super(props);
-
-            }
-
-            render(){
-                return(
-                    <div>
-                        <p>Nome: {this.props.socio.nome} </p>
-                        <p>Idade: {this.props.socio.idade} </p>
-                    </div>
-                )
             }
         }
         
