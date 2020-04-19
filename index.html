@@ -3,6 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>ReactJS</title>
+
+    <style>
+        .cor-vermelho{
+            color: red;
+        }
+
+        .tamanho{
+            font-size: 2em;
+        }
+    </style>
 </head>
 <body>
 
@@ -15,21 +25,24 @@
 
         class App extends React.Component{
 
+            constructor(props){
+                super(props);
+            }
             render(){
-                
-                const nomes = ["João", "Ana", "Carlos", "Ana"];
-                const final = nomes.map((nome, index) => <h3 key={index}>{index} - {nome}</h3>);
-                
+
+                let cor = this.props.cor ? 'cor-vermelho' : '';
+                let tamanho = this.props.tamanho ? 'tamanho' : '';
+
                 return(
                     <div>
-                        {final}
+                        <p className={`${cor} ${tamanho}`}>Texto com estilo!</p>
                     </div>
                 );
             }
         }
         
         ReactDOM.render(
-            <App />,
+            <App cor={true} tamanho={true}/>,
             document.getElementById('root')
         )
 
