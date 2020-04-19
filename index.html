@@ -13,39 +13,53 @@
 
     <script type="text/babel">
 
-        //parent
         class App extends React.Component{
 
-            metodo(texto){
-                console.log(texto);
+            constructor(){
+                super()
+
+                this.state = {
+                    tempoBom: true
+                }
             }
 
             render(){
-                return(
-                    <div>
-                        <p>Texto do componente Pai</p>
-                        <Child evento={this.metodo} />
-                    </div>
-                );
-            }
-        }
 
-        //child
-        class Child extends React.Component{
-            render(){
                 return(
-                    <div>
-                        <button onClick={() => this.props.evento("Olá Mundo!")}>Clicar</button>
-                    </div>
+                    this.state.tempoBom && <p>O tempo está bom</p>
                 )
+
+                // --------------------------------
+                // Condição ternária
+                /*return(
+                    this.state.tempoBom ? <p>O tempo está bom</p> : <p>O tempo está mau</p>
+                )*/
+
+                //---------------------------------
+                // Usando variável
+                /*let texto
+                if(this.state.tempoBom){
+                    texto = <p>O tempo está bom</p>
+                } else{
+                    texto = <p>O tempo está mau</p>
+                }
+
+                return texto*/
+
+                //----------------------------------
+                //if else
+                /*if(this.state.tempoBom){
+                    return <p>O tempo está bom.</p>
+                } else{
+                    return <p>O tempo está mau.</p>
+                }*/
             }
         }
-
+        
         ReactDOM.render(
             <App />,
             document.getElementById('root')
-        );
-    
+        )
 
     </script>
 </body>
