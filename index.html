@@ -28,18 +28,25 @@
             constructor(){
                 super()
                 this.state = {
-                    texto: "Esse é o texto da textarea"
+                    item: "item3"
                 }
             }
 
-            alterarTexto = (event) => {
-                this.setState({texto: event.target.value});
+            alterarItem = e => {
+                this.setState({item: e.target.value})
             }
+
 
             render(){
                 return(
                     <div>
-                        <textarea onChange = {this.alterarTexto} value={this.state.texto} cols="10" rows="5"></textarea>
+                        <select value={this.state.item} onChange={this.alterarItem}>
+                            <option value="item1">Item 1</option>
+                            <option value="item2">Item 2</option>
+                            <option value="item3">Item 3</option>
+                        </select>
+                    
+                        <p>Item selecionado: {this.state.item} </p>
                     </div>
                 );
             }
