@@ -28,25 +28,37 @@
             constructor(){
                 super()
                 this.state = {
-                    item: "item3"
+                    username: '',
+                    password: ''
                 }
             }
 
-            alterarItem = e => {
-                this.setState({item: e.target.value})
+            alterarUsername = (e) => {
+                this.setState({username: e.target.value});
+                console.log(this.state.username);
+            }
+
+            alterarPassword = (e) => {
+                this.setState({password: e.target.value})
+            }
+
+            submeterForm = e => {
+                console.log("Username: " + this.state.username);
+                console.log("Password: " + this.state.password);
+                e.preventDefault();
             }
 
 
             render(){
                 return(
-                    <div>
-                        <select value={this.state.item} onChange={this.alterarItem}>
-                            <option value="item1">Item 1</option>
-                            <option value="item2">Item 2</option>
-                            <option value="item3">Item 3</option>
-                        </select>
-                    
-                        <p>Item selecionado: {this.state.item} </p>
+                    <div>                    
+                        <form onSubmit={this.submeterForm}>
+                            <input type="text" value={this.state.username} onChange={this.alterarUsername} placeholder="Username"/>
+                            <h2 />
+                            <input type="password" value={this.state.password} onChange={this.alterarPassword} placeholder="Password"/>
+                            <br />
+                            <input type="submit" value="Entrar" />
+                        </form>
                     </div>
                 );
             }
