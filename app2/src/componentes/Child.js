@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 
 class Child extends Component{
+
+    Alterar = () => {
+        this.props.funcaoAlterar("Este é o novo nome.");
+    }
+
     render(){
         return(
             <div>
                 <h3>Child</h3>
-                <p>Nome: {this.props.nome}</p>
+                <button onClick={this.Alterar}>Alterar</button>
             </div>
         )
     }

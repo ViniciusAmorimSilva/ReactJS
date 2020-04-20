@@ -8,21 +8,21 @@ class App extends React.Component{
     nome: "João"
   }
 
-  Alterar = () => {
+  Alterar = (novoNome) => {
     this.setState({
-      nome: "Joaquim"
-    });
+      nome: novoNome
+    })
   }
 
   render(){
     return(
       <div>
         <h3>Parent</h3>
+        <p>Nome: {this.state.nome}</p>
 
-        <button onClick={this.Alterar}>Alterar</button>
         <hr/>
 
-        <Child nome={this.state.nome} />
+        <Child funcaoAlterar = {this.Alterar}/>
       </div>
     );
   }
