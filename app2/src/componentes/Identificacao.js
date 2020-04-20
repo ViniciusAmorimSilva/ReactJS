@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Nome from './Nome';
 import Apelido from './Apelido';
 
-class Identificacao extends React.Component{
+class Identificacao extends Component{
     render(){
         return(
             <div>
-                <Nome />
-                <Apelido />
+                <p>Nome: {this.props.nome}</p>
+                <p>Apelido: {this.props.apelido}</p>
             </div>
         );
     }
