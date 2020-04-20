@@ -1,29 +1,36 @@
 import React from 'react';
 import Identificacao from './componentes/Identificacao';
 import Child from './componentes/Child';
+import Navegacao from './componentes/Navegacao';
+import Home from './componentes/Home';
+import Servicos from './componentes/Servicos';
+import Contatos from './componentes/Contatos';
+
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 class App extends React.Component{
 
-  state = {
-    nome: "João"
-  }
-
-  Alterar = (novoNome) => {
-    this.setState({
-      nome: novoNome
-    })
-  }
-
   render(){
     return(
-      <div>
-        <h3>Parent</h3>
-        <p>Nome: {this.state.nome}</p>
+      <Router>
+        <div>
+          <Navegacao />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
 
-        <hr/>
+            <Route path="/servicos">
+              <Servicos />
+            </Route>
 
-        <Child funcaoAlterar = {this.Alterar}/>
-      </div>
+            <Route path="/contatos">
+              <Contatos />
+            </Route>
+
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
