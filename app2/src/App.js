@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Identificacao from './componentes/Identificacao';
 import Child from './componentes/Child';
 import Navegacao from './componentes/Navegacao';
@@ -8,31 +8,18 @@ import Contatos from './componentes/Contatos';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-class App extends React.Component{
+const App = () => {
 
-  render(){
-    return(
-      <Router>
-        <div>
-          <Navegacao />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
+  const[Nome, setNome] = useState("João");
 
-            <Route path="/servicos">
-              <Servicos />
-            </Route>
+  const AlterarNome = () => setNome("Joaquim Silva");
 
-            <Route path="/contatos">
-              <Contatos />
-            </Route>
-
-          </Switch>
-        </div>
-      </Router>
-    );
-  }
+  return(
+    <div>
+      <p>O meu nome é: {Nome} </p>
+        <button onClick={() => AlterarNome()}>Alterar</button>
+    </div>
+  );
 }
 
 export default App;
