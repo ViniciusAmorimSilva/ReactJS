@@ -26,39 +26,33 @@
         class App extends React.Component{
 
             constructor(){
-                super()
+                super();
+
                 this.state = {
-                    username: '',
-                    password: ''
+                    nome: "João"
                 }
+
+                console.log("constructor");
+            }
+            
+            componentDidMount(){
+                console.log("montado");
+                //Onde se faz a consulta a dados da API
             }
 
-            alterarUsername = (e) => {
-                this.setState({username: e.target.value});
-                console.log(this.state.username);
+            alterar = () => {
+                console.log("Alterar");
+                this.setState({nome: "Joaquim"});
             }
-
-            alterarPassword = (e) => {
-                this.setState({password: e.target.value})
-            }
-
-            submeterForm = e => {
-                console.log("Username: " + this.state.username);
-                console.log("Password: " + this.state.password);
-                e.preventDefault();
-            }
-
 
             render(){
+                console.log("render");
                 return(
                     <div>                    
-                        <form onSubmit={this.submeterForm}>
-                            <input type="text" value={this.state.username} onChange={this.alterarUsername} placeholder="Username"/>
-                            <h2 />
-                            <input type="password" value={this.state.password} onChange={this.alterarPassword} placeholder="Password"/>
-                            <br />
-                            <input type="submit" value="Entrar" />
-                        </form>
+                        Olá {this.state.nome}
+                        <div>
+                            <button onClick={this.alterar}>Alterar</button>
+                        </div>
                     </div>
                 );
             }
